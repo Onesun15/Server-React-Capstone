@@ -149,7 +149,6 @@ router.get('/:id', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  console.log(req.body);
   User.findByIdAndUpdate(req.params.id, {$push: {wishList:req.body.itemId}},
     function(err){
       if(err) {
@@ -162,7 +161,6 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-  console.log(req.body);
   User.update({'_id':req.params.id}, {$pull:{wishList: req.body.wishList}},
     function(err) {
       if(err){
